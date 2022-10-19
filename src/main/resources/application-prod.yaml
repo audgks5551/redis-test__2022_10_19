@@ -1,0 +1,25 @@
+spring:
+  redis:
+    host: redis
+    port: 6379
+    password: 1111
+  datasource:
+    url: jdbc:mariadb://mariadb-1-service:3306/redis-test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Seoul
+    username: root
+    password: pass
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB53Dialect
+    properties:
+      hibernate:
+        default_batch_fetch_size: 100
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+    hibernate:
+      ddl-auto: create
+    open-in-view: false
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql: TRACE

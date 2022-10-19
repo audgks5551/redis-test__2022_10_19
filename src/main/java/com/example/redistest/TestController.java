@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 @RequiredArgsConstructor
 public class TestController {
@@ -29,6 +31,14 @@ public class TestController {
         ValueOperations<String, String> vop = redisTemplate.opsForValue();
         String value = vop.get(key);
         return ResponseEntity.ok(value);
+    }
+
+    @GetMapping("/session")
+    public String session(HttpSession session) {
+
+        session.setAttribute("email","test");
+
+        return "test";
     }
 
 }
