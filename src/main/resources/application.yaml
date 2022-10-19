@@ -1,0 +1,8 @@
+
+spring:
+  redis:
+    host: itseasy.site
+    port: 30003
+    password: 1111
+server:
+  port: 8083
